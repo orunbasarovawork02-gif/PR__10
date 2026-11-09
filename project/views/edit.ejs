@@ -1,0 +1,68 @@
+<%- include("partials/head", { title: title }) %>
+<body>
+
+    <%- include("partials/header") %>
+
+    <main class="container form-container">
+        <a href="/" class="back-link">← Назад к достопримечательностям</a>
+
+        <h1>Редактировать достопримечательность</h1>
+        <p>Измени информацию и нажми кнопку «Сохранить изменения».</p>
+
+        <div id="edit-message" class="form-message" role="status" hidden></div>
+
+        <form id="edit-place-form" class="place-form" data-place-id="<%= place.id %>">
+            <label for="title">Название</label>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                value="<%= place.title || '' %>"
+                minlength="8"
+                required
+            >
+
+            <label for="description">Описание</label>
+            <textarea
+                id="description"
+                name="description"
+                rows="5"
+                minlength="10"
+                required
+            ><%= place.description || '' %></textarea>
+
+            <label for="category">Категория</label>
+            <input
+                type="text"
+                id="category"
+                name="category"
+                value="<%= place.category || '' %>"
+                required
+            >
+
+            <label for="time">Время посещения</label>
+            <input
+                type="text"
+                id="time"
+                name="time"
+                value="<%= place.time || '' %>"
+                required
+            >
+
+            <label for="image">Изображение (необязательно)</label>
+            <input
+                type="text"
+                id="image"
+                name="image"
+                value="<%= place.image || '' %>"
+                placeholder="Nur alem.jpg"
+            >
+
+            <button type="submit" class="button">Сохранить изменения</button>
+            <a href="/" class="back-link">Отмена</a>
+        </form>
+    </main>
+
+    <script src="/js/edit.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+
+<%- include("partials/head", { title: title }) %>
+<body>
+
+    <%- include("partials/header") %>
+
+    <main class="container">
+
+        <section class="hero">
+            <p class="subtitle">ПУТЕШЕСТВУЙ ПО СТОЛИЦЕ</p>
+
+            <h1>Открой для себя Астану</h1>
+
+            <p>
+                Исследуй интересные места, архитектуру
+                и достопримечательности столицы Казахстана.
+            </p>
+
+            <% if (isAdmin) { %>
+                <a href="/add" class="button">
+                    + Добавить достопримечательность
+                </a>
+            <% } else { %>
+                <a href="/login" class="button">
+                    Вход администратора
+                </a>
+            <% } %>
+        </section>
+
+        <section class="places-section">
+
+            <h2>Интересные места</h2>
+
+            <% if (places.length === 0) { %>
+
+                <p>Пока нет достопримечательностей.</p>
+
+            <% } else { %>
+
+                <div class="cards">
+
+                    <% places.forEach(function(place) { %>
+
+                        <article
+                            class="card"
+                            data-place-id="<%= place.id %>"
+                        >
+
+                            <% if (place.image) { %>
+                                <img
+                                    src="/img/<%= encodeURIComponent(place.image) %>"
+                                    alt="<%= place.title || place.name %>"
+                                    class="card-image"
+                                    onerror="this.style.display='none'"
+                                >
+                            <% } %>
+
+                            <div class="card-content">
+
+                                <p class="category">
+                                    <%= place.category || "Достопримечательность" %>
+                                </p>
+
+                                <h3>
+                                    <%= place.title || place.name %>
+                                </h3>
+
+                                <p>
+                                    <%= place.description %>
+                                </p>
+
+                                <p class="time">
+                                    Время посещения:
+                                    <%= place.time || "Не указано" %>
+                                </p>
+
+                                <a
+                                    href="/place/<%= place.id %>"
+                                    class="card-link"
+                                >
+                                    Подробнее →
+                                </a>
+
+                                <% if (isAdmin) { %>
+
+                                    <div class="card-actions">
+
+                                        <!-- Кнопка изменения -->
+                                        <a
+                                            href="/edit/<%= place.id %>"
+                                            class="button button-small"
+                                        >
+                                            Изменить
+                                        </a>
+
+                                        <!-- Кнопка удаления через DELETE API -->
+                                        <button
+                                            type="button"
+                                            class="button button-small button-danger delete-place-button"
+                                            data-id="<%= place.id %>"
+                                        >
+                                            Удалить
+                                        </button>
+
+                                    </div>
+
+                                <% } %>
+
+                            </div>
+
+                        </article>
+
+                    <% }); %>
+
+                </div>
+
+            <% } %>
+
+        </section>
+
+    </main>
+
+    <!-- Подключение REST API JavaScript -->
+    <script src="/js/api-admin.js" defer></script>
+
+</body>
+</html>

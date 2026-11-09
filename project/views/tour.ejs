@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <%- include("partials/head") %>
+</head>
+<body>
+  <%- include("partials/header") %>
+  <main class="container">
+    <h1><%= tour.title %></h1>
+    <p class="meta"><strong>Категория:</strong> <%= tour.category %></p>
+    <p class="meta"><strong>Длительность:</strong> <%= tour.duration %></p>
+    <p class="description"><%= tour.description %></p>
+    <br>
+    <a href="/">← Назад к выбору туров</a>
+  </main>
+  <%- include("partials/footer", { year: 2026 }) %>
+</body>
+</html>

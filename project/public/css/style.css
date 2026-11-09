@@ -1,0 +1,306 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f6f8;
+    color: #57274b;
+    line-height: 1.6;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+    background: #57274b;
+    color: white;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.header nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.header nav a:hover {
+    color: #f0b45b;
+}
+
+.container {
+    width: 86%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero {
+    padding: 65px 0;
+}
+
+.subtitle,
+.category {
+    color: #a36518;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+.hero p {
+    max-width: 650px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    background: #22252d;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.button:hover {
+    background: #414652;
+}
+
+.places-section {
+    padding-bottom: 60px;
+}
+
+.places-section h2 {
+    font-size: 28px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card {
+    overflow: hidden;
+    background: white;
+    border: 1px solid #e2e4e8;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.card-image {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    margin: 8px 0;
+}
+
+.card-link,
+.back-link {
+    color: #805018;
+    text-decoration: none;
+}
+
+.card-link:hover,
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.time {
+    color: #666;
+    font-size: 14px;
+}
+
+.form-container {
+    max-width: 650px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.place-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.place-form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.place-form input,
+.place-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    background: white;
+    font: inherit;
+}
+
+.place-form input:focus,
+.place-form textarea:focus {
+    outline: 2px solid #a36518;
+    border-color: transparent;
+}
+
+.place-form textarea {
+    resize: vertical;
+}
+
+.place-form .button {
+    align-self: flex-start;
+}
+
+.errors {
+    padding: 15px 20px;
+    border-radius: 8px;
+    background: #ffe8e8;
+    color: #a00000;
+}
+
+.errors ul {
+    margin-bottom: 0;
+}
+
+.detail-page,
+.about-page {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.detail-card {
+    margin-top: 20px;
+    padding: 25px;
+    border-radius: 12px;
+    background: white;
+}
+
+.detail-image {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.not-found {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
+}
+
+.not-found h1 {
+    font-size: 70px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 850px) {
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        width: 92%;
+    }
+
+    .header {
+        padding: 18px 4%;
+    }
+
+    .header nav {
+        gap: 12px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+
+/* Элементы управления CRUD для администратора */
+.card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.button-small {
+    margin-top: 0;
+    padding: 9px 13px;
+    font-size: 14px;
+}
+
+.button-danger {
+    background: #a83245;
+}
+
+.button-danger:hover {
+    background: #842638;
+}
+
+.form-message {
+    margin: 16px 0;
+    padding: 12px 15px;
+    border-radius: 7px;
+}
+
+.form-message.success {
+    color: #176b37;
+    background: #e5f5e9;
+}
+
+.form-message.error {
+    color: #a00000;
+    background: #ffe8e8;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
